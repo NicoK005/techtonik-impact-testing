@@ -3,23 +3,12 @@ package com.demo.auth.api;
 /**
  * Response contract of the token endpoint.
  *
- * <p>This is the producer side of the demo. Six consumer classes read
- * {@link #getExpiresIn()}; removing that field is the breaking change the
- * Risk Gate is expected to catch.
+ * <p>This is the producer side of the demo.
  */
 public class TokenResultDTO {
 
     private String accessToken;
     private String tokenType;
-
-    /**
-     * Seconds until the token expires.
-     *
-     * <p>Consumers cache and schedule against this. Deleting it is the
-     * breaking change under test.
-     */
-    private long expiresIn;
-
     private String scope;
 
     public String getAccessToken() {
@@ -36,14 +25,6 @@ public class TokenResultDTO {
 
     public void setTokenType(String tokenType) {
         this.tokenType = tokenType;
-    }
-
-    public long getExpiresIn() {
-        return expiresIn;
-    }
-
-    public void setExpiresIn(long expiresIn) {
-        this.expiresIn = expiresIn;
     }
 
     public String getScope() {
